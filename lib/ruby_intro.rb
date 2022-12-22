@@ -3,29 +3,85 @@
 # Part 1
 
 def sum arr
-  # YOUR CODE HERE
+  arr.sum()
 end
 
 def max_2_sum arr
-  # YOUR CODE HERE
+
+  sum = 0
+
+  if arr.length == 0 
+    return 0
+  elsif arr.length == 1
+    return arr[0]  
+  else  
+    maxTwo = arr.max(2)
+    sum += maxTwo[0] + maxTwo[1]
+    return sum
+  end  
+  
 end
 
 def sum_to_n? arr, n
-  # YOUR CODE HERE
+
+  if arr.length == 0 || arr.length == 1
+    return false 
+  else 
+      for i in 0...arr.length
+          for j in i+1...arr.length
+              if arr[i] + arr[j] == n
+                  return true
+                  break    
+              end    
+          end    
+      end
+      return false
+  end  
+  
 end
 
 # Part 2
 
 def hello(name)
-  # YOUR CODE HERE
+  return 'Hello, ' + name
 end
 
 def starts_with_consonant? s
-  # YOUR CODE HERE
+
+  vowels = ['a', 'e', 'i', 'o', 'u']
+
+  if (s =~ /[^a-zA-Z0-9]/).nil? and vowels.include? s.chr.downcase
+    return false
+  elsif s.empty? || !(s =~ /[^a-zA-Z0-9]/).nil?
+    return false
+  else
+    return true 
+  end    
+
 end
 
 def binary_multiple_of_4? s
-  # YOUR CODE HERE
+  
+  sum = 0
+  n = s.length - 1
+
+  if !(s =~ /[A-Za-z]/).nil? || s.empty?
+    return false
+  else  
+    for i in 0...s.length
+      if s[i] == '1'
+        sum += 2 ** n
+      end  
+      n -= 1
+    end  
+
+    if sum % 4 == 0
+      return true
+    else
+      return false  
+    end  
+  end  
+
 end
 
 # Part 3
