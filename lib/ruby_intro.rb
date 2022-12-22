@@ -88,7 +88,6 @@ end
 
 class BookInStock
 
-  
   def initialize(isbn, price)
     if !isbn.empty? and price > 0
       @isbn = isbn
